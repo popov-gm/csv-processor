@@ -14,13 +14,15 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.apache.commons:commons-collections4:4.4'
 	implementation 'com.opencsv:opencsv:5.7.1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
 
-configurations.all {
+configurations.configureEach {
 	exclude group: 'commons-logging', module: 'commonsLogging'
+	exclude group: 'commons-collections', module: 'commons-collections'
 }
 
 tasks.named('test') {
